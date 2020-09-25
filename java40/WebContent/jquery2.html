@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+       //함수정의 + 사용정의 => 익명함수
+       //callback함수
+       //document.ready() => body부분부터 브라우저가 읽고 와야함.
+       $(function(){
+       
+       $('#b3').click(function() { 
+    	   pw=$("#pw").val() //태그사이의 텍스트는 text()
+    	   pwcheck=$("#pwcheck").val()
+    	   
+    	   if(pw==pwcheck){
+    		   $("div").html("<font color = red><b>확인란 일치</b></font>")
+    	   }
+    	   else{
+    		   $("div").html("<font color = blue><b>확인란 불일치</b></font>")
+    	   }
+		})
+       })
+</script>
+</head>
+<body>
+	    패스워드 <input type="text" id="pw"><br>
+		패스워드확인 <input type="text" id="pwcheck"><br>
+		<button id=b3>비밀번호 확인</button>
+		<div></div>
+
+
+</body>
+</html>
