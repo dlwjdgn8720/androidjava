@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({
+				url:"money.jsp",
+				data:{
+					money:$('#money').val(),
+					pay:$('#pay').val()
+				},
+				success : function(result){					
+					$('#d1').html('<font color = blue>' + result + '</font>')
+					
+				} //success b1
+			}) //ajax b1
+		}) //b1 click
+		
+		
+		$('#b2').click(function(){
+    	   $.ajax({
+    		   url:"phone.jsp",
+    		   data:{
+    			   phone:$('#phone').val()
+    		   },
+    		   success:function(result){
+    			   $('#d1').append(result)
+    		   } //success b2
+    	   })//ajax b2
+       }) //b2 click
+       $('#userid').keyup(function(){
+    	   $.ajax({
+    		   url:"login.jsp",
+    		   data:{
+    			   userid:$('#userid').val()
+    		   },
+    		   success:function(result){
+    			   $("#d1").html("아이디의길이는 "+ result)
+    		   } //success b3
+    	   }) //ajax b3
+       })//b3 click
+       
+       $('#pwcheck').keyup(function(){
+    	   $.ajax({
+    		   url:"login2.jsp",
+    		   data:{
+    			   pw:$('#pw').val(),
+    			   pwcheck:$('#pwcheck').val()
+    		   },
+    		   success:function(result){
+    			   $("#d1").html(result)
+    		   } //success b4
+    	   }) //ajax b4
+       }) //b4 click
+       
+    		   
+    		   
+	}) // ready end
+</script>
+</head>
+<body>
+    결제금액 : <input type="text" id="money"><br>
+    결제수단 : <input type="text" id="pay" value="1)계좌 2)카드 3)휴대폰">
+	<button id="b1">결제하기</button><br>	
+	인증받을 전화번호 입력 : <input type="text" id="phone">
+	<button id="b2">인증번호 받기</button><br>
+	아이디 :  <input type="text" id="userid"><br>
+    비밀번호 : <input type="text" id="pw" >
+    비밀번호체크: <input type="text" id="pwcheck">
+	<hr color = red>
+	<div id="d1"></div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({ /* 비동기통신 */
+				url : "call2.jsp", //1
+				data : { //2
+					score: $('#score').val()
+                },
+				success : function(result) { //4
+					console.log("받은 데이터: " + result)
+					if (result == '최우수') {
+						alert("최우수성적입니다.")
+						alert("통과")
+					}
+					else if(result =='우수'){
+						alert("우수성적입니다.")
+						alert("통과")
+						}
+					 else {
+						 alert("보통성적입니다.")
+						 alert('재시험')
+					}
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+
+	성적<input type="text" id="score">
+	<button id="b1">성적판별.!!</button>
+
+
+</body>
+</html>
